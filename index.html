@@ -12,35 +12,41 @@
     <!-- **** NAME ****-->
     <section class="center">
         <label for="">Name </label>
-        <input type="text" name="firstname" value="" class="">
+        <input type="text" name="firstname" value="" class="inputName">
     </section>
     
     <!-- **** LANGUAGES ****-->
     <section class="center">
         <label for="">
-            <input type="radio" name="languages" id="" value="sotho" class="">
+            <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
             SeSotho
         </label>
 
         <label for="">
-            <input type="radio" name="languages" id="" value="bali" class="">
-            Balinese
+            <input type="radio" name="languages" id="" value="samoa" class="radioTypeLang">
+            Samoan
         </label>
 
         <label for="">
-            <input type="radio" name="languages" id="" value="english" class="">
+            <input type="radio" name="languages" id="" value="english" class="radioTypeLang">
             English
         </label>
     </section>
     
     <!-- **** GREET BUTTON ****-->
     <section class="center">
-        <button class="greet-me" type="button" name="button">Greet Me</button>
+        <button class="button-primary greetBtn" on type="button" name="button">Greet Me</button>
     </section>
 
     <!--SAY GREETING-->
-    <p class="center white col-3">
-        <span class="lang-hello">Hello</span>,<span class="name-greet">Kanyisa</span>
+    <p class="center white col-3 outgreet">
+        Molo, Kanyisa
     </p>
+
+    <!-- COUNTER   -->
+    <div class="white col-3 center">Counter: <span class="count"></span></div>
+
+    <!-- *** SCRIPTS ****-->
+    <script src="greet.js" charset="utf-8"></script>
 </body>
 </html>
