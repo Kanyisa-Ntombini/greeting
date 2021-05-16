@@ -1,6 +1,5 @@
 function GreetMe() {
     var greetingString;
-    var counter = 0;
     var theName;
 
     function greetEng () {
@@ -15,20 +14,12 @@ function GreetMe() {
         greetingString = "Dumela";
     }
 
-    function sayName (name) {
+    function setName (name) {
         theName = name;
-    }
-
-    function count() {
-        counter ++;
     }
 
     function getGreeting () {
         return greetingString + ", " + theName;
-    }
-
-    function getCount () {
-        return counter;
     }
 
     return {
@@ -36,42 +27,46 @@ function GreetMe() {
         greetSamoa,
         greetSotho,
         getGreeting,
-        sayName,
-        count,
-        getCount
+        setName
     }
 }
 
 const greetBtn = document.querySelector(".greetBtn");
-
 var greeting = GreetMe();
 
 function greetMeEvent () {
-    var outGreet = document.querySelector(".outgreet");
-
+    /* ======================= INPUT ============================ */
     // WHAT THE USER TYPES IN
     var setName = document.querySelector(".inputName").value;
     var radioLangBtn = document.querySelector(".radioTypeLang:checked").value;
     
-    greeting.sayName(setName);
-    setName.value = "";
+    /* ======================= PROCESS ============================ */
+    //MAKE THE GREETING
+    greeting.setName(setName);
     if (radioLangBtn === 'english') {
         greeting.greetEng();
-        greeting.count();
-        outGreet.innerHTML = greeting.getGreeting();
     } else if (radioLangBtn === 'samoa') {
         greeting.greetSamoa();
-        greeting.count();
-        outGreet.innerHTML = greeting.getGreeting();
     } else if (radioLangBtn === 'sotho') {
-        greeting.greetSotho();
-        greeting.count();
-        outGreet.innerHTML = greeting.getGreeting();
+        greeting.greetSotho();       
     }
 
-    //COUNTER
-    var count = document.querySelector(".count");
-    count.innerHTML = greeting.getCount();
+    //ADD CLICKS
+    if (localStorage['countClicks']) {
+        localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
+    } else {
+        localStorage['countClicks'] = 1;
+    }
+
+    /* ======================= OUTPUT ============================ */
+    //PRINT OUT GREETING (OUTPUT)
+    var outGreet = document.querySelector(".outgreet");
+    outGreet.innerHTML = greeting.getGreeting();
+
+    //PRINT OUT COUNTER (OUTPUT)
+    //display counter
+    var displayCount = document.querySelector(".count");
+    displayCount.innerHTML = localStorage.getItem('countClicks');
 }
 
 greetBtn.addEventListener("click", greetMeEvent);

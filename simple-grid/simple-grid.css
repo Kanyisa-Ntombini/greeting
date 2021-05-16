@@ -25,6 +25,7 @@ body {
   font-family: 'Lato', Helvetica, sans-serif;
   color: #333447;
   line-height: 1.5;
+  box-sizing: border-box;
 }
 
 /* TYPOGRAPHY */
@@ -253,5 +254,13 @@ p {
 /* === OTHER === */
 .white {
   background-color: white;
+  border: 0.1rem solid black;
+}
+
+.text-margin {
+  margin: 1rem;
+}
+
+.border {
   border: 0.1rem solid black;
 }

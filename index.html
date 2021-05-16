@@ -10,13 +10,13 @@
     <h1 class="center">Greeting</h1>
 
     <!-- **** NAME ****-->
-    <section class="center">
+    <section class="center text-margin">
         <label for="">Name </label>
-        <input type="text" name="firstname" value="" class="inputName">
+        <input type="text" name="firstname" value="" class="inputName border">
     </section>
     
     <!-- **** LANGUAGES ****-->
-    <section class="center">
+    <section class="center text-margin">
         <label for="">
             <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
             SeSotho
@@ -34,18 +34,18 @@
     </section>
     
     <!-- **** GREET BUTTON ****-->
-    <section class="center">
-        <button class="button-primary greetBtn" on type="button" name="button">Greet Me</button>
+    <section class="center text-margin">
+        <button class="button-primary greetBtn border" on type="button" name="button">Greet Me</button>
     </section>
 
     <!--SAY GREETING-->
-    <p class="center white col-3 outgreet">
-        Molo, Kanyisa
-    </p>
+    <section class="center text-margin">
+        <textarea name="name" rows="1" cols="20" class="outgreet border" class="outgreet border: 0.1rem solid black;"></textarea>
+    </section>
 
     <!-- COUNTER   -->
     <div class="white col-3 center">Counter: <span class="count"></span></div>
-
+    
     <!-- *** SCRIPTS ****-->
     <script src="greet.js" charset="utf-8"></script>
 </body>
