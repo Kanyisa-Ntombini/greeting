@@ -7,20 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="container">
+    <div class="container container-color">
         <!-- **** GREETING HEADING **** -->
-        <section class="row">
-            <h1 class="center col-3">Greeting</h1>
-        </section>
+        <h1 class="center">Greeting</h1>
         
         <!-- **** INPUT NAME ****-->
-        <section class="center row margin-down">
+        <section class="center margin-down">
             <label for="">Name </label>
-            <input type="text" name="firstname" value="" class="inputName border">
+            <input type="text" name="firstname" value="" class="inputName border dimensions">
         </section>
         
         <!-- **** CHOOSE LANGUAGE ****-->
-        <section class="center row margin-down">
+        <section class="center margin-down">
             <label for="">
                 <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
                 Sesotho
@@ -37,26 +35,20 @@
             </label>
         </section>
         
-        <!-- **** GREET BUTTON****-->
-        <section class="center row margin-down">
-            <button class="button-primary greetBtn border" on type="button" name="button">Greet Me</button>
-        </section>
-
-        <!-- ****  RESET BUTTON **** -->
-        <section class="center row margin-down">
-            <button class="button-primary reset border" on type="button2" name="button2">Reset</button>
-        </section>
+        <!-- **** GREET & RESET BUTTON****-->
+        <div class="center margin-down row">
+            <button class="button-primary greetBtn border col-6" on type="button"name="button">Greet Me</button>
+            <button class="button-primary reset border col-6" on type="button2" name="button2">Reset</button>
+        </div>
     
         <!--SAY GREETING-->
-        <section class="center margin-down"> <!-- rows="1" cols="20" -->
-            <textarea name="name" rows="1" class="outgreet border" class="outgreet"></textarea>
-        </section>
+        <div class="outgreet margin-down center">Hello....</div>
 
         <!-- COUNTER   -->
-        <section class="row margin-down">
-            <div class="center white col-3">Counter: <span class="count"></span></div>
+        <section class="margin-down">
+            <div class="center white dimensions">Counter: <span class="count"></span></div>
         </section>
-    
+
     </div>
 
     <!-- *** SCRIPTS ****-->

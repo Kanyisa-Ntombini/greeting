@@ -16,7 +16,7 @@ body {
   left: 0;
   top: 0;
   font-size: 100%;
-  background-color: rgb(140, 240, 9);
+  background-color: rgb(183, 217, 247);
 }
 
 /* ROOT FONT STYLES */
@@ -246,7 +246,7 @@ p {
 
 @media only screen and (min-width: 60em) { /* 960px LAPTOP*/
   .container {
-    width: 75%;
+    width: 50%;
     max-width: 60rem;
   }
 
@@ -261,24 +261,26 @@ p {
   border: 0.1rem solid black;
 }
 
+.button-primary {
+  height: 2rem;
+  width: 5rem;
+}
+
+.dimensions {
+  width: 10rem;
+  height: 2rem;
+}
+
+.button-margins {
+  margin-left: 2rem;
+}
+
 .border {
   border: 0.1rem solid black;
 }
 
 /* ==== COLORS ==== */
 
-.pink {
-  background-color: pink;
-}
-
-.blue {
-  background-color:lightblue;
-}
-
-.red {
-  background-color: crimson;
-}
-
-.grey {
-  background-color: grey;
+.container-color {
+  background-color: aliceblue;
 }

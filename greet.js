@@ -80,6 +80,10 @@ function greetMeBtnEvent () {
     greeting.createNamesObj();
 
     /* ======================= OUTPUT ============================ */
+    //CLEAR INPUT FIELD 
+    var inputField1 = document.querySelector('.inputName');
+    inputField1.value = '';
+
     //PRINT OUT GREETING (OUTPUT)
     var outGreet = document.querySelector(".outgreet");
     outGreet.innerHTML = greeting.getGreeting();
@@ -94,8 +98,16 @@ greetBtn.addEventListener('click', greetMeBtnEvent);
 function resetBtnEvent() {
     localStorage.clear();
 
+    //CLEAR INPUT FIELD 
+    var inputField2 = document.querySelector('.inputName');
+    inputField2.value = '';
+
      //display counter
      var displayCountResetBtn = document.querySelector(".count");
-     displayCountResetBtn.innerHTML = 0;
+     displayCountResetBtn.innerHTML = '';
+
+    //CLEAR GREETING (OUTPUT)
+    var outGreet2 = document.querySelector(".outgreet");
+    outGreet2.innerHTML = 'Hello....';
 }
 resetBtn.addEventListener('click', resetBtnEvent);
