@@ -24,21 +24,9 @@ function GreetMe() {
         return greetingString;
     }
 
-    function greetEng () {
-        greetingString = "Hello";
-    }
-
-    function greetSamoa () {
-        greetingString = "Talofa";
-    }
-
-    function greetSotho () {
-        greetingString = "Dumela";
-    }
-
 
     function getGreeting () {
-        return greetingString + ", " + theName;
+        return getLanguage() + ", " + getName();
     }
 
     function greetingsCounter() {
@@ -69,9 +57,6 @@ function GreetMe() {
         getCounter,
         greetingsCounter,
         createNamesObj,
-        greetEng,
-        greetSamoa,
-        greetSotho,
         getGreeting
     }
 }
@@ -82,38 +67,28 @@ var greeting = GreetMe();
 var namesGreeted = {};
 
 function greetMeBtnEvent () {
-
-    /* ======================= INPUT ============================ */
     // WHAT THE USER TYPES IN
     var setName = document.querySelector(".inputName").value;
     var radioLangBtn = document.querySelector(".radioTypeLang:checked").value;
     
-    /* ======================= PROCESS ============================ */
     //MAKE THE GREETING
     greeting.setName(setName);
-    if (radioLangBtn === 'english') {
-        greeting.greetEng();
-    } else if (radioLangBtn === 'samoa') {
-        greeting.greetSamoa();
-    } else if (radioLangBtn === 'sotho') {
-        greeting.greetSotho();       
-    }
+    greeting.chooseLanguage(radioLangBtn);
+
     //CREATE THE OBJECT TO STORE THE NAMES AND COUNT THE NAMES
     greeting.createNamesObj();
-
-    /* ======================= OUTPUT ============================ */
-    //CLEAR INPUT FIELD 
-    var inputField1 = document.querySelector('.inputName');
-    inputField1.value = '';
 
     //PRINT OUT GREETING (OUTPUT)
     var outGreet = document.querySelector(".outgreet");
     outGreet.innerHTML = greeting.getGreeting();
 
     //PRINT OUT COUNTER (OUTPUT)
-    //display counter
     var displayCount = document.querySelector(".count");
     displayCount.innerHTML = greeting.getCounter();
+
+    //CLEAR INPUT FIELD 
+    var inputField1 = document.querySelector('.inputName');
+    inputField1.value = '';
 }
 greetBtn.addEventListener('click', greetMeBtnEvent);
 
