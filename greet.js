@@ -22,28 +22,35 @@ function GreetMe() {
         return greetingString + ", " + theName;
     }
 
-    function createNamesObj () {
-        if (namesGreeted['userName'] === undefined) {
-            namesGreeted['userName'] = 0;
+    function greetingsCounter() {
+        //ADD CLICKS
+        if (localStorage['countClicks']) {
+            localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
         } else {
-            namesGreeted['userName'] ++;
+            localStorage['countClicks'] = 1;
         }
     }
 
-    function countNames() {
-        if (namesObjExist()) {
-
+    function createNamesObj () {
+        if (namesGreeted[theName] === undefined) {
+            greetingsCounter();
+            namesGreeted[theName] = 0;
         }
+    }
+    
+    function getCounter() {
+        return localStorage.getItem('countClicks');
     }
 
     return {
+        getCounter,
+        greetingsCounter,
         createNamesObj,
         greetEng,
         greetSamoa,
         greetSotho,
         getGreeting,
-        setName, 
-        countNames
+        setName
     }
 }
 
@@ -53,6 +60,7 @@ var greeting = GreetMe();
 var namesGreeted = {};
 
 function greetMeBtnEvent () {
+
     /* ======================= INPUT ============================ */
     // WHAT THE USER TYPES IN
     var setName = document.querySelector(".inputName").value;
@@ -68,13 +76,8 @@ function greetMeBtnEvent () {
     } else if (radioLangBtn === 'sotho') {
         greeting.greetSotho();       
     }
-
-    //ADD CLICKS
-    if (localStorage['countClicks']) {
-        localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
-    } else {
-        localStorage['countClicks'] = 1;
-    }
+    //CREATE THE OBJECT TO STORE THE NAMES AND COUNT THE NAMES
+    greeting.createNamesObj();
 
     /* ======================= OUTPUT ============================ */
     //PRINT OUT GREETING (OUTPUT)
@@ -84,7 +87,7 @@ function greetMeBtnEvent () {
     //PRINT OUT COUNTER (OUTPUT)
     //display counter
     var displayCount = document.querySelector(".count");
-    displayCount.innerHTML = localStorage.getItem('countClicks');
+    displayCount.innerHTML = greeting.getCounter();
 }
 greetBtn.addEventListener('click', greetMeBtnEvent);
 
