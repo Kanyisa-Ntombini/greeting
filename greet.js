@@ -22,19 +22,37 @@ function GreetMe() {
         return greetingString + ", " + theName;
     }
 
+    function createNamesObj () {
+        if (namesGreeted['userName'] === undefined) {
+            namesGreeted['userName'] = 0;
+        } else {
+            namesGreeted['userName'] ++;
+        }
+    }
+
+    function countNames() {
+        if (namesObjExist()) {
+
+        }
+    }
+
     return {
+        createNamesObj,
         greetEng,
         greetSamoa,
         greetSotho,
         getGreeting,
-        setName
+        setName, 
+        countNames
     }
 }
 
 const greetBtn = document.querySelector(".greetBtn");
+const resetBtn = document.querySelector('.reset');
 var greeting = GreetMe();
+var namesGreeted = {};
 
-function greetMeEvent () {
+function greetMeBtnEvent () {
     /* ======================= INPUT ============================ */
     // WHAT THE USER TYPES IN
     var setName = document.querySelector(".inputName").value;
@@ -68,5 +86,13 @@ function greetMeEvent () {
     var displayCount = document.querySelector(".count");
     displayCount.innerHTML = localStorage.getItem('countClicks');
 }
+greetBtn.addEventListener('click', greetMeBtnEvent);
 
-greetBtn.addEventListener("click", greetMeEvent);
+function resetBtnEvent() {
+    localStorage.clear();
+
+     //display counter
+     var displayCountResetBtn = document.querySelector(".count");
+     displayCountResetBtn.innerHTML = 0;
+}
+resetBtn.addEventListener('click', resetBtnEvent);

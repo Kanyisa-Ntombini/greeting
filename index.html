@@ -7,45 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1 class="center">Greeting</h1>
+    <div class="container">
+        <!-- **** GREETING HEADING **** -->
+        <section class="row">
+            <h1 class="center col-3">Greeting</h1>
+        </section>
+        
+        <!-- **** INPUT NAME ****-->
+        <section class="center row margin-down">
+            <label for="">Name </label>
+            <input type="text" name="firstname" value="" class="inputName border">
+        </section>
+        
+        <!-- **** CHOOSE LANGUAGE ****-->
+        <section class="center row margin-down">
+            <label for="">
+                <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
+                Sesotho
+            </label>
 
-    <!-- **** NAME ****-->
-    <section class="center text-margin">
-        <label for="">Name </label>
-        <input type="text" name="firstname" value="" class="inputName border">
-    </section>
+            <label for="">
+                <input type="radio" name="languages" id="" value="samoa" class="radioTypeLang">
+                Samoan
+            </label>
+
+            <label for="">
+                <input type="radio" name="languages" id="" value="english" class="radioTypeLang">
+                English
+            </label>
+        </section>
+        
+        <!-- **** GREET BUTTON****-->
+        <section class="center row margin-down">
+            <button class="button-primary greetBtn border" on type="button" name="button">Greet Me</button>
+        </section>
+
+        <!-- ****  RESET BUTTON **** -->
+        <section class="center row margin-down">
+            <button class="button-primary reset border" on type="button2" name="button2">Reset</button>
+        </section>
     
-    <!-- **** LANGUAGES ****-->
-    <section class="center text-margin">
-        <label for="">
-            <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
-            SeSotho
-        </label>
+        <!--SAY GREETING-->
+        <section class="center margin-down"> <!-- rows="1" cols="20" -->
+            <textarea name="name" rows="1" class="outgreet border" class="outgreet"></textarea>
+        </section>
 
-        <label for="">
-            <input type="radio" name="languages" id="" value="samoa" class="radioTypeLang">
-            Samoan
-        </label>
-
-        <label for="">
-            <input type="radio" name="languages" id="" value="english" class="radioTypeLang">
-            English
-        </label>
-    </section>
+        <!-- COUNTER   -->
+        <section class="row margin-down">
+            <div class="center white col-3">Counter: <span class="count"></span></div>
+        </section>
     
-    <!-- **** GREET BUTTON ****-->
-    <section class="center text-margin">
-        <button class="button-primary greetBtn border" on type="button" name="button">Greet Me</button>
-    </section>
+    </div>
 
-    <!--SAY GREETING-->
-    <section class="center text-margin">
-        <textarea name="name" rows="1" cols="20" class="outgreet border" class="outgreet border: 0.1rem solid black;"></textarea>
-    </section>
-
-    <!-- COUNTER   -->
-    <div class="white col-3 center">Counter: <span class="count"></span></div>
-    
     <!-- *** SCRIPTS ****-->
     <script src="greet.js" charset="utf-8"></script>
 </body>

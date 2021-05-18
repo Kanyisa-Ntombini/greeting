@@ -244,10 +244,14 @@ p {
   }
 }
 
-@media only screen and (min-width: 60em) { /* 960px */
+@media only screen and (min-width: 60em) { /* 960px LAPTOP*/
   .container {
     width: 75%;
     max-width: 60rem;
+  }
+
+  .margin-down { /* creates space between the section tags */
+    margin-bottom: 1rem;
   }
 }
 
@@ -257,10 +261,24 @@ p {
   border: 0.1rem solid black;
 }
 
-.text-margin {
-  margin: 1rem;
-}
-
 .border {
   border: 0.1rem solid black;
+}
+
+/* ==== COLORS ==== */
+
+.pink {
+  background-color: pink;
+}
+
+.blue {
+  background-color:lightblue;
+}
+
+.red {
+  background-color: crimson;
+}
+
+.grey {
+  background-color: grey;
 }
