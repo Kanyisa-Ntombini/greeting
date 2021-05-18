@@ -2,6 +2,28 @@ function GreetMe() {
     var greetingString;
     var theName;
 
+    function setName (name) {
+        theName = name;
+    }
+
+    function getName() {
+        return theName;
+    }
+
+    function chooseLanguage(someInput) {
+        if (someInput === 'english') {
+            greetingString = "Hello";
+        } else if (someInput === 'samoa') {
+            greetingString = "Talofa";
+        } else if (someInput === 'sotho') {
+            greetingString = "Dumela";
+        }
+    }
+
+    function getLanguage() {
+        return greetingString;
+    }
+
     function greetEng () {
         greetingString = "Hello";
     }
@@ -14,9 +36,6 @@ function GreetMe() {
         greetingString = "Dumela";
     }
 
-    function setName (name) {
-        theName = name;
-    }
 
     function getGreeting () {
         return greetingString + ", " + theName;
@@ -43,14 +62,17 @@ function GreetMe() {
     }
 
     return {
+        setName,
+        getName,
+        chooseLanguage,
+        getLanguage,
         getCounter,
         greetingsCounter,
         createNamesObj,
         greetEng,
         greetSamoa,
         greetSotho,
-        getGreeting,
-        setName
+        getGreeting
     }
 }
 
