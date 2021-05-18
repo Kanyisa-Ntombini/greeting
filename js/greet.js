@@ -72,19 +72,21 @@ function greetMeBtnEvent () {
     var radioLangBtn = document.querySelector(".radioTypeLang:checked").value;
     
     //MAKE THE GREETING
-    greeting.setName(setName);
-    greeting.chooseLanguage(radioLangBtn);
+    if (setName.length > 0){
+        greeting.setName(setName);
+        greeting.chooseLanguage(radioLangBtn);
 
-    //CREATE THE OBJECT TO STORE THE NAMES AND COUNT THE NAMES
-    greeting.createNamesObj();
+        //CREATE THE OBJECT TO STORE THE NAMES AND COUNT THE NAMES
+        greeting.createNamesObj();
 
-    //PRINT OUT GREETING (OUTPUT)
-    var outGreet = document.querySelector(".outgreet");
-    outGreet.innerHTML = greeting.getGreeting();
+        //PRINT OUT GREETING (OUTPUT)
+        var outGreet = document.querySelector(".outgreet");
+        outGreet.innerHTML = greeting.getGreeting();
 
-    //PRINT OUT COUNTER (OUTPUT)
-    var displayCount = document.querySelector(".count");
-    displayCount.innerHTML = greeting.getCounter();
+        //PRINT OUT COUNTER (OUTPUT)
+        var displayCount = document.querySelector(".count");
+        displayCount.innerHTML = greeting.getCounter();
+    }
 
     //CLEAR INPUT FIELD 
     var inputField1 = document.querySelector('.inputName');
@@ -99,9 +101,9 @@ function resetBtnEvent() {
     var inputField2 = document.querySelector('.inputName');
     inputField2.value = '';
 
-     //display counter
+     //CLEAR display counter
      var displayCountResetBtn = document.querySelector(".count");
-     displayCountResetBtn.innerHTML = '';
+     displayCountResetBtn.innerHTML = 0;
 
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".outgreet");
