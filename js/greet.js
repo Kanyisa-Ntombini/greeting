@@ -107,6 +107,6 @@ function resetBtnEvent() {
 
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".outgreet");
-    outGreet2.innerHTML = 'Hello....';
+    outGreet2.innerHTML = '';
 }
 resetBtn.addEventListener('click', resetBtnEvent);
