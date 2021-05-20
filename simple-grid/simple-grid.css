@@ -246,8 +246,11 @@ p {
 
 @media only screen and (min-width: 60em) { /* 960px LAPTOP*/
   .container {
-    width: 50%;
+    width: 40%;
+    height: 80%;
     max-width: 60rem;
+    background-color: aliceblue;
+    padding: 0rem 2rem 2rem 2rem;
   }
 
   .margin-down { /* creates space between the section tags */
@@ -276,11 +279,31 @@ p {
 }
 
 .border {
-  border: 0.1rem solid black;
+  border: 0.1rem ridge rgb(187, 186, 186);
 }
 
 /* ==== COLORS ==== */
 
-.container-color {
-  background-color: aliceblue;
+.red {
+  color: crimson;
+}
+
+.error {
+  width: 20rem;
+  height: 1rem;
+  color: red;
+}
+
+.greeting {
+  width: 10rem;
+  height: 1rem;
+}
+
+.counter {
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+  background-color: white;
+}
+
+.margin-down {
+  margin-bottom: 1rem;
 }

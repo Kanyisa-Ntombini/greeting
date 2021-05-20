@@ -7,48 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="container container-color">
-        <!-- **** GREETING HEADING **** -->
+    <section class="container">
+        <!--HEADING-->
         <h1 class="center">Greeting</h1>
-        
-        <!-- **** INPUT NAME ****-->
-        <section class="center margin-down">
-            <label for="">Name </label>
-            <input type="text" name="firstname" value="" class="inputName border dimensions">
-        </section>
-        
-        <!-- **** CHOOSE LANGUAGE ****-->
-        <section class="center margin-down">
-            <label for="">
-                <input type="radio" name="languages" id="" value="sotho" class="radioTypeLang">
+
+        <!-- INPUT -->
+        <div class="center margin-down">
+            <label for="" class="">Name</label>
+            <input type="text" value="" placeholder="e.g. Jane" class="center enter-name">
+        </div>
+
+        <!--ERROR NAME-->
+        <div class="margin-down">
+            <div class="center error err-name"></div>
+        </div>
+
+        <!-- CHOOSE LANGUAGE -->
+        <div class="center margin-down">
+            <label class="">
+                <input type="radio" name="langBtnRadio" class="lang-btn" value="sotho">
                 Sesotho
             </label>
-
-            <label for="">
-                <input type="radio" name="languages" id="" value="samoa" class="radioTypeLang">
+    
+            <label class="">
+                <input type="radio" name="langBtnRadio" class="lang-btn" value="samoa">
                 Samoan
             </label>
-
-            <label for="">
-                <input type="radio" name="languages" id="" value="english" class="radioTypeLang">
+    
+            <label class="">
+                <input type="radio" name="langBtnRadio" class="lang-btn" value="english">
                 English
             </label>
-        </section>
-        
-        <!-- **** GREET & RESET BUTTON****-->
-        <div class="center margin-down row">
-            <button class="button-primary greetBtn border col-6" on type="button"name="button">Greet Me</button>
-            <button class="button-primary reset border col-6" on type="button2" name="button2">Reset</button>
         </div>
+
+        <!--ERROR LANG-->
+        <div class="margin-down">
+            <div class="center error err-lang"></div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="row center margin-down">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <button class="button-primary greet" type="button" name="button">Greet Me</button>
+            </div>
+            <div class="col-4">
+                <button class="button-primary reset" type="button" name="button">Reset</button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <!--GREETING-->
+        <div class="margin-down">
+            <div class="center greeting"></div>
+        </div>
+
+        <div class="center">Counter: <span class="count border">0</span></div>
+
+    </section>
     
-        <!--SAY GREETING-->
-        <div class="outgreet margin-down center"></div>
-
-        <!-- COUNTER   -->
-        <div class="center white dimensions margin-down">Counter: <span class="count">0</span></div>
-        
-    </div>
-
     <!-- *** SCRIPTS ****-->
     <script src="../greetings/js/greet.js" charset="utf-8"></script>
 </body>
