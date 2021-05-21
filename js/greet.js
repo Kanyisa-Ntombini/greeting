@@ -109,16 +109,6 @@ function greetMeFuncEvent() {
             errorName.innerHTML = "Please do not enter a number";
         }
     }
-
-    //CLEAR FIELD s
-    var inputField1 = document.querySelector('.enter-name');
-    inputField1.value = '';
-
-    var errorName1 = document.querySelector('.err-name');
-    errorName1.innerHTML = '';
-
-    var errorLang1 = document.querySelector('.err-lang');
-    errorLang1.innerHTML = '';
 }
 greetMeBtn.addEventListener('click', greetMeFuncEvent);
 
@@ -144,5 +134,9 @@ function resetFuncEvent() {
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".greeting");
     outGreet2.innerHTML = '';
+
+    //CLEAR RADIO BUTTONS
+    var radioBtn = document.querySelector('lang-btn:checked');
+    radioBtn.checked = false;
 }
 resetBtn.addEventListener('click', resetFuncEvent);
