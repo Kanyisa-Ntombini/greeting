@@ -78,6 +78,19 @@ var namesGreeted = {};
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
 function greetMeFuncEvent() {
+    //CLEAR FIELDS
+    var errorName1 = document.querySelector('.err-name');
+    errorName1.innerHTML = "";
+
+    var errorLang1 = document.querySelector('.err-lang');
+    errorLang1.innerHTML = "";
+
+    var outGreet1 = document.querySelector(".greeting");
+    outGreet1.innerHTML = '';
+
+    /*var radioBtn = document.querySelector('.lang-btn:checked');
+    radioBtn.checked = false; THIS MAKES ME UNABLE TO CHOOSE A LANGUAGE */
+
     /* INPUT NAME */
     var enterName = document.querySelector('.enter-name').value;
     myGreeting.setName(enterName);
@@ -87,20 +100,21 @@ function greetMeFuncEvent() {
     var errorName = document.querySelector('.err-name');
     var errorLang = document.querySelector('.err-lang');
     var outGreet = document.querySelector('.greeting');
+    var outCounter = document.querySelector('.count');
 
     //PROCESS of sorting the name inputed and the language
     if (enterName.toString().length > 0) {
         if (!myGreeting.checkNumber()) {
             if (myGreeting.checkLanguage(langChosen)) {
-                console.log(myGreeting.getLanguage(langChosen.value));
+                myGreeting.getLanguage(langChosen.value);
+
+                //PRINT OUT GREETING
                 outGreet.innerHTML = myGreeting.showGreeting();
 
-                //CREATE THE OBJECT TO STORE THE NAMES AND COUNT THE NAMES
-                myGreeting.createNamesObj();
-
-                //PRINT OUT COUNTER (OUTPUT)
-                var displayCount = document.querySelector(".count");
-                displayCount.innerHTML = myGreeting.getCounter();
+                //PRINT OUT COUNTER
+                myGreeting.greetingsCounter();
+                //myGreeting.createNamesObj();
+                outCounter.innerHTML = myGreeting.getCounter();
             } else {
                 errorLang.innerHTML = "Please choose a language";
             }
@@ -109,6 +123,10 @@ function greetMeFuncEvent() {
             errorName.innerHTML = "Please do not enter a number";
         }
     }
+
+    //CLEAR INPUT FIELD
+    var input1 = document.querySelector(".enter-name");
+    input1.value = '';
 }
 greetMeBtn.addEventListener('click', greetMeFuncEvent);
 
@@ -117,26 +135,28 @@ const resetBtn = document.querySelector('.reset');
 function resetFuncEvent() {
     localStorage.clear();
 
-    //CLEAR ERRORS
+    //CLEAR INPUT FIELD
+    var input2 = document.querySelector(".enter-name");
+    input2.value = '';
+
+    //CLEAR ERROR NAME FIELD
     var errorName2 = document.querySelector('.err-name');
-    errorName2.innerHTML = '';
+    errorName2.innerHTML = "";
+
+    //CLEAR LANG FIELD
     var errorLang2 = document.querySelector('.err-lang');
-    errorLang2.innerHTML = '';
+    errorLang2.innerHTML = "";
 
-    //CLEAR INPUT FIELD 
-    var inputField2 = document.querySelector('.enter-name');
-    inputField2.value = '';
-
-     //CLEAR display counter
-     var displayCountResetBtn = document.querySelector(".count");
-     displayCountResetBtn.innerHTML = 0;
+    //CLEAR display counter
+    var displayCountResetBtn = document.querySelector(".count");
+    displayCountResetBtn.innerHTML = 0;
 
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".greeting");
     outGreet2.innerHTML = '';
 
     //CLEAR RADIO BUTTONS
-    var radioBtn = document.querySelector('lang-btn:checked');
+    var radioBtn = document.querySelector('.lang-btn:checked');
     radioBtn.checked = false;
 }
 resetBtn.addEventListener('click', resetFuncEvent);
