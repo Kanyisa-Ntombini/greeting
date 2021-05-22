@@ -3,7 +3,8 @@ function GreetMe() {
     /* WE GOT THE NAME, CHECKED IT AND MADE THE FIRST LETTER A CAPITAL */
     var theName = '';
     function setName(name) {
-        theName = name;
+        theName = name.toLowerCase();
+        //alert(theName);
     }
 
     function checkNumber() {
@@ -12,7 +13,7 @@ function GreetMe() {
 
     function getName() {
             var upper = theName.charAt(0).toUpperCase();
-            var lower = theName.slice(1).toLowerCase();
+            var lower = theName.slice(1);
             return upper + lower;
     }
 
@@ -70,93 +71,3 @@ function GreetMe() {
         getCounter
     }
 }
-
-//INSTANCE OF THE FACTORY FUNCTION
-var myGreeting = GreetMe();
-var namesGreeted = {};
-
-//GREET ME BUTTON
-const greetMeBtn = document.querySelector('.greet');
-function greetMeFuncEvent() {
-    //CLEAR FIELDS
-    var errorName1 = document.querySelector('.err-name');
-    errorName1.innerHTML = "";
-
-    var errorLang1 = document.querySelector('.err-lang');
-    errorLang1.innerHTML = "";
-
-    var outGreet1 = document.querySelector(".greeting");
-    outGreet1.innerHTML = '';
-
-    /*var radioBtn = document.querySelector('.lang-btn:checked');
-    radioBtn.checked = false; THIS MAKES ME UNABLE TO CHOOSE A LANGUAGE */
-
-    /* INPUT NAME */
-    var enterName = document.querySelector('.enter-name').value;
-    myGreeting.setName(enterName);
-
-    //HTML STUFF
-    var langChosen = document.querySelector('.lang-btn:checked');
-    var errorName = document.querySelector('.err-name');
-    var errorLang = document.querySelector('.err-lang');
-    var outGreet = document.querySelector('.greeting');
-    var outCounter = document.querySelector('.count');
-
-    //PROCESS of sorting the name inputed and the language
-    if (enterName.toString().length > 0) {
-        if (!myGreeting.checkNumber()) {
-            if (myGreeting.checkLanguage(langChosen)) {
-                myGreeting.getLanguage(langChosen.value);
-
-                //PRINT OUT GREETING
-                outGreet.innerHTML = myGreeting.showGreeting();
-
-                //PRINT OUT COUNTER
-                myGreeting.greetingsCounter();
-                //myGreeting.createNamesObj();
-                outCounter.innerHTML = myGreeting.getCounter();
-            } else {
-                errorLang.innerHTML = "Please choose a language";
-            }
-            
-        } else {
-            errorName.innerHTML = "Please do not enter a number";
-        }
-    }
-
-    //CLEAR INPUT FIELD
-    var input1 = document.querySelector(".enter-name");
-    input1.value = '';
-}
-greetMeBtn.addEventListener('click', greetMeFuncEvent);
-
-//RESET BUTTON
-const resetBtn = document.querySelector('.reset');
-function resetFuncEvent() {
-    localStorage.clear();
-
-    //CLEAR INPUT FIELD
-    var input2 = document.querySelector(".enter-name");
-    input2.value = '';
-
-    //CLEAR ERROR NAME FIELD
-    var errorName2 = document.querySelector('.err-name');
-    errorName2.innerHTML = "";
-
-    //CLEAR LANG FIELD
-    var errorLang2 = document.querySelector('.err-lang');
-    errorLang2.innerHTML = "";
-
-    //CLEAR display counter
-    var displayCountResetBtn = document.querySelector(".count");
-    displayCountResetBtn.innerHTML = 0;
-
-    //CLEAR GREETING (OUTPUT)
-    var outGreet2 = document.querySelector(".greeting");
-    outGreet2.innerHTML = '';
-
-    //CLEAR RADIO BUTTONS
-    var radioBtn = document.querySelector('.lang-btn:checked');
-    radioBtn.checked = false;
-}
-resetBtn.addEventListener('click', resetFuncEvent);
