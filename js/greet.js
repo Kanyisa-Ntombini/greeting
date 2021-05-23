@@ -3,7 +3,7 @@ function GreetMe() {
     /* WE GOT THE NAME, CHECKED IT AND MADE THE FIRST LETTER A CAPITAL */
     var theName = '';
     function setName(name) {
-        theName = name.toLowerCase();
+        theName = name;
         //alert(theName);
     }
 
@@ -38,16 +38,6 @@ function GreetMe() {
         return greetMe  + ', ' + getName();
     }
 
-    //COUNTER
-    function greetingsCounter() {
-        //ADD CLICKS
-        if (localStorage['countClicks']) {
-            localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
-        } else {
-            localStorage['countClicks'] = 1;
-        }
-    }
-
     function createNamesObj () {
         if (namesGreeted[theName] === undefined) {
             greetingsCounter();
@@ -66,7 +56,6 @@ function GreetMe() {
         checkLanguage,
         getLanguage,
         showGreeting,
-        greetingsCounter,
         createNamesObj,
         getCounter
     }

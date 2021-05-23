@@ -19,7 +19,7 @@ function greetMeFuncEvent() {
     radioBtn.checked = false; THIS MAKES ME UNABLE TO CHOOSE A LANGUAGE */
 
     /* INPUT NAME */
-    var enterName = document.querySelector('.enter-name').value;
+    var enterName = document.querySelector('.enter-name').value.toLowerCase();
     myGreeting.setName(enterName);
 
     //HTML STUFF
@@ -30,17 +30,30 @@ function greetMeFuncEvent() {
     var outCounter = document.querySelector('.count');
 
     //PROCESS of sorting the name inputed and the language
-    if (enterName.toString().length > 0) {
+    if (enterName.toString().length > 0) { /* MAKE SURE SOMETHING IS TYPED */
+        /* CHECK IF ITS NOT A NUMBER */
         if (!myGreeting.checkNumber()) {
+            /* CHECK IF A LANGUAGE IS CHOSEN*/
             if (myGreeting.checkLanguage(langChosen)) {
                 myGreeting.getLanguage(langChosen.value);
 
                 //PRINT OUT GREETING
                 outGreet.innerHTML = myGreeting.showGreeting();
 
-                //PRINT OUT COUNTER
-                myGreeting.createNamesObj();
-                outCounter.innerHTML = myGreeting.getCounter();
+                //COUNTER
+                /* CHECK IF A NAME IS REPEATED */
+                if (namesGreeted[enterName] === undefined) {
+                    /* ADD CLICKS */
+                    if (localStorage['countClicks']) {
+                        localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
+                    } else {
+                        localStorage['countClicks'] = 1;
+                    }
+                    namesGreeted[enterName] = 0;
+                }
+
+                outCounter.innerHTML = localStorage.getItem('countClicks');
+
             } else {
                 errorLang.innerHTML = "Please choose a language";
             }
@@ -82,7 +95,7 @@ function resetFuncEvent() {
     outGreet2.innerHTML = '';
 
     //CLEAR RADIO BUTTONS
-    var radioBtn = document.querySelector('.lang-btn:checked');
+    var radioBtn = document.querySelector('.lang-btn');
     radioBtn.checked = false;
 }
 resetBtn.addEventListener('click', resetFuncEvent);
