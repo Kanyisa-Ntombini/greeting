@@ -15,51 +15,57 @@ function greetMeFuncEvent() {
     var outGreet1 = document.querySelector(".greeting");
     outGreet1.innerHTML = '';
 
-    /*var radioBtn = document.querySelector('.lang-btn:checked');
-    radioBtn.checked = false; THIS MAKES ME UNABLE TO CHOOSE A LANGUAGE */
-
-    /* INPUT NAME */
-    var enterName = document.querySelector('.enter-name').value.toLowerCase();
-    myGreeting.setName(enterName);
-
     //HTML STUFF
+    var enterName = document.querySelector('.enter-name').value.toLowerCase();
     var langChosen = document.querySelector('.lang-btn:checked');
     var errorName = document.querySelector('.err-name');
     var errorLang = document.querySelector('.err-lang');
     var outGreet = document.querySelector('.greeting');
     var outCounter = document.querySelector('.count');
 
-    //PROCESS of sorting the name inputed and the language
-    if (enterName.toString().length > 0) { /* MAKE SURE SOMETHING IS TYPED */
-        /* CHECK IF ITS NOT A NUMBER */
-        if (!myGreeting.checkNumber()) {
-            /* CHECK IF A LANGUAGE IS CHOSEN*/
-            if (myGreeting.checkLanguage(langChosen)) {
-                myGreeting.getLanguage(langChosen.value);
+    /* INPUT NAME */
+    myGreeting.setName(enterName);
 
-                //PRINT OUT GREETING
-                outGreet.innerHTML = myGreeting.showGreeting();
+    /* PROCESS */
+    //Check if name is entered
+    if (!myGreeting.checkName()) {
+        myGreeting.nameErrorMessage();
+        errorName.innerHTML = myGreeting.getNameError();
+    } 
 
-                //COUNTER
-                /* CHECK IF A NAME IS REPEATED */
-                if (namesGreeted[enterName] === undefined) {
-                    /* ADD CLICKS */
-                    if (localStorage['countClicks']) {
-                        localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
-                    } else {
-                        localStorage['countClicks'] = 1;
-                    }
-                    namesGreeted[enterName] = 0;
+    //Check if number is entered
+    if (myGreeting.checkNumber()) {
+        myGreeting.numberErrorMessage();
+        errorName.innerHTML = myGreeting.getNumberError();
+    }
+
+    //Check if language is entered
+    myGreeting.setLang(langChosen);
+    if(myGreeting.checkName() && !myGreeting.checkNumber()) {
+        if (myGreeting.checkLanguage()) {
+            myGreeting.langErrorMessage();
+            myGreeting.getLanguage();
+            myGreeting.getName();
+            outGreet.innerHTML = myGreeting.showGreeting();
+
+            //COUNTER
+            /* CHECK IF NAME IS REPEATED */
+            /* STORE namesGreeted in local storage */
+
+            if (namesGreeted[enterName] === undefined) {
+                namesGreeted[enterName] = 0;
+                //count clicks
+                if (localStorage['countClicks']) {
+                    localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
+                } else {
+                    localStorage['countClicks'] = 1;
                 }
-
-                outCounter.innerHTML = localStorage.getItem('countClicks');
-
-            } else {
-                errorLang.innerHTML = "Please choose a language";
             }
-            
+            outCounter.innerHTML = localStorage.getItem('countClicks');
+
         } else {
-            errorName.innerHTML = "Please do not enter a number";
+            myGreeting.langErrorMessage();
+            errorLang.innerHTML = myGreeting.getLangError();
         }
     }
 

@@ -1,62 +1,110 @@
 function GreetMe() {
+    var theNameInput = '';
+    var checkNameMessage = '';
+    var checkNumberMessage = '';
+    var checkLangMessage = '';
+    var langInputChecked = '';
+    var langInput;
+    var greetMe = '';
 
-    /* WE GOT THE NAME, CHECKED IT AND MADE THE FIRST LETTER A CAPITAL */
-    var theName = '';
     function setName(name) {
-        theName = name;
-        //alert(theName);
+        theNameInput = name;
     }
 
-    function checkNumber() {
-        return /\d/.test(theName);
+    /* CHECKING IF A NAME HAS BEEN INSERTED */
+    function checkName() {
+        return theNameInput.length > 0;
     }
 
-    function getName() {
-            var upper = theName.charAt(0).toUpperCase();
-            var lower = theName.slice(1);
-            return upper + lower;
-    }
-
-    // WE ARE CHOOSING A LANGUAGE
-    var greetMe = ''
-    function checkLanguage(language) { //checking if language was selected
-        return language != null;
-    }
-
-    function getLanguage(language) {
-        if (language == 'sotho') {
-            greetMe = 'Dumela';
-        } else if (language == 'samoa') {
-            greetMe = 'Talofa';
-        } else if (language == 'english') {
-            greetMe = 'Hello';
-        }  
-    }
-
-    //DISPLAY GREETING
-    function showGreeting() {
-        return greetMe  + ', ' + getName();
-    }
-
-    function createNamesObj () {
-        if (namesGreeted[theName] === undefined) {
-            greetingsCounter();
-            namesGreeted[theName] = 0;
+    function nameErrorMessage () {
+        if (checkName()) {
+            checkLanguage();
+        } else {
+            checkNameMessage = 'Please enter a name';
         }
     }
 
-    function getCounter() {
-        return localStorage.getItem('countClicks');
+    function getNameError() {
+        return checkNameMessage;
+    }
+
+    function checkNumber() {
+        return /\d/.test(theNameInput);
+    }
+
+    function numberErrorMessage() {
+        if (checkNumber()) {
+            checkNumberMessage = 'Please do not enter a number';
+        } else {
+            checkLanguage();
+        }
+    }
+
+    function getNumberError() {
+        return checkNumberMessage;
+    }
+
+    //LANGUAGE
+    function setLang(language) {
+        langInputChecked = language;
+    }
+
+    function checkLanguage() {
+        return langInputChecked != null;
+    }
+
+    function langErrorMessage() {
+        if (checkLanguage()) {
+            langInput = langInputChecked.value;
+        } else {
+            checkLangMessage = 'Please choose a language';
+        }
+    }
+
+    function getLangError() {
+        return checkLangMessage;
+    }
+
+    function getLanguage() {
+        if (langInput == 'sotho') {
+            greetMe = 'Dumela';
+        } else if (langInput == 'samoa') {
+            greetMe = 'Talofa';
+        } else if (langInput == 'english') {
+            greetMe = 'Hello';
+        }  
+        /*console.log('LANGINPUT VALUE: ' + langInput);
+        console.log('works');
+        console.log(greetMe);
+        console.log('works');*/
+    }
+
+
+    /* OUTPUT */
+    function getName() {
+            var upper = theNameInput.charAt(0).toUpperCase();
+            var lower = theNameInput.slice(1);
+            return upper + lower;
+    }
+
+    function showGreeting() {
+        return greetMe  + ', ' + getName();
     }
     
     return {
         setName,
+        checkName,
+        nameErrorMessage,
+        getNameError,
         checkNumber,
-        getName,
+        numberErrorMessage,
+        getNumberError,
+        setLang,
         checkLanguage,
+        langErrorMessage,
+        getLangError,
         getLanguage,
-        showGreeting,
-        createNamesObj,
-        getCounter
+        getName,
+        showGreeting
     }
 }
