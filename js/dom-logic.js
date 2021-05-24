@@ -2,6 +2,9 @@
 var myGreeting = GreetMe();
 var namesGreeted = {'hey': 4};
 
+var outCounterRefresh = document.querySelector('.count');
+outCounterRefresh.innerHTML = myGreeting.getCounter();
+
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
 function greetMeFuncEvent() {
@@ -106,7 +109,7 @@ function resetFuncEvent() {
 
     //CLEAR display counter
     var displayCountResetBtn = document.querySelector(".count");
-    displayCountResetBtn.innerHTML = '';
+    displayCountResetBtn.innerHTML = 0;
 
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".greeting");
