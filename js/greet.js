@@ -73,10 +73,6 @@ function GreetMe() {
         } else if (langInput == 'english') {
             greetMe = 'Hello';
         }  
-        /*console.log('LANGINPUT VALUE: ' + langInput);
-        console.log('works');
-        console.log(greetMe);
-        console.log('works');*/
     }
 
 
@@ -89,6 +85,20 @@ function GreetMe() {
 
     function showGreeting() {
         return greetMe  + ', ' + getName();
+    }
+
+    /* COUNTER */
+    function greetingsCounter() {
+        //ADD CLICKS
+        if (localStorage['countClicks']) {
+            localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
+        } else {
+            localStorage['countClicks'] = 1;
+        }
+    }
+    
+    function getCounter() {
+        return localStorage.getItem('countClicks');
     }
     
     return {
@@ -105,6 +115,8 @@ function GreetMe() {
         getLangError,
         getLanguage,
         getName,
-        showGreeting
+        showGreeting,
+        greetingsCounter,
+        getCounter
     }
 }

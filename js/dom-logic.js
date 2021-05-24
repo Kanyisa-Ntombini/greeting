@@ -1,6 +1,6 @@
 //INSTANCE OF THE FACTORY FUNCTION
 var myGreeting = GreetMe();
-var namesGreeted = {};
+var namesGreeted = {'hey': 4};
 
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
@@ -48,20 +48,32 @@ function greetMeFuncEvent() {
             myGreeting.getName();
             outGreet.innerHTML = myGreeting.showGreeting();
 
-            //COUNTER
-            /* CHECK IF NAME IS REPEATED */
-            /* STORE namesGreeted in local storage */
+            //COUNTER & CHECK IF NAME REPEATS
 
-            if (namesGreeted[enterName] === undefined) {
-                namesGreeted[enterName] = 0;
-                //count clicks
-                if (localStorage['countClicks']) {
-                    localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
-                } else {
-                    localStorage['countClicks'] = 1;
+            let namesGreetedStored = JSON.parse(localStorage.getItem('keys'));
+            console.log(namesGreetedStored);
+
+            //does names object exist
+            if (namesGreetedStored === null) {
+                myGreeting.greetingsCounter();
+                //create the names object
+                let obj = {};
+                obj[enterName] = 0;
+                localStorage['keys'] = JSON.stringify(obj);
+                //alert('one')
+                
+            } else {
+                //alert('two');
+                /* STORE names object in local storage */
+                if (namesGreetedStored[enterName] === undefined) {
+                    namesGreetedStored[enterName] = 0;
+                    console.log(namesGreetedStored);
+                    localStorage['keys'] = JSON.stringify(namesGreetedStored);
+                    
+                    myGreeting.greetingsCounter();
                 }
             }
-            outCounter.innerHTML = localStorage.getItem('countClicks');
+            outCounter.innerHTML = myGreeting.getCounter();
 
         } else {
             myGreeting.langErrorMessage();
@@ -94,7 +106,7 @@ function resetFuncEvent() {
 
     //CLEAR display counter
     var displayCountResetBtn = document.querySelector(".count");
-    displayCountResetBtn.innerHTML = 0;
+    displayCountResetBtn.innerHTML = '';
 
     //CLEAR GREETING (OUTPUT)
     var outGreet2 = document.querySelector(".greeting");
