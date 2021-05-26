@@ -299,10 +299,12 @@ p {
   height: 1rem;
 }
 
-.count {
-  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+/*#count {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: white;
-}
+  border: 0.1rem ridge rgb(187, 186, 186);
+  color: crimson;
+}*/
 
 .margin-down {
   margin-bottom: 1rem;

@@ -100,7 +100,7 @@ function GreetMe() {
     function getCounter() {
         return localStorage.getItem('countClicks');
     }
-    
+
     return {
         setName,
         checkName,
