@@ -88,7 +88,7 @@ function GreetMe() {
     }
 
     /* COUNTER */
-    function greetingsCounter() {
+    /*function greetingsCounter() {
         //ADD CLICKS
         if (localStorage['countClicks']) {
             localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
@@ -99,7 +99,7 @@ function GreetMe() {
     
     function getCounter() {
         return localStorage.getItem('countClicks');
-    }
+    }*/
 
     return {
         setName,
@@ -115,8 +115,6 @@ function GreetMe() {
         getLangError,
         getLanguage,
         getName,
-        showGreeting,
-        greetingsCounter,
-        getCounter
+        showGreeting
     }
 }

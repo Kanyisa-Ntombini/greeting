@@ -1,9 +1,9 @@
 //INSTANCE OF THE FACTORY FUNCTION
 let myGreeting = GreetMe();
-let namesGreeted = {'hey': 4};
+let namesGreeted = {'initialise': 1};
 
 let outCounterRefresh = document.getElementById('count');
-outCounterRefresh.innerHTML = myGreeting.getCounter();
+outCounterRefresh.innerHTML = localStorage.getItem('countClicks');
 
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
@@ -57,29 +57,23 @@ function greetMeFuncEvent() {
             //COUNTER & CHECK IF NAME REPEATS
 
             let namesGreetedStored = JSON.parse(localStorage.getItem('keys'));
-            console.log(namesGreetedStored);
 
             //does names object exist
             if (namesGreetedStored === null) {
-                myGreeting.greetingsCounter();
                 //create the names object
                 let obj = {};
                 obj[enterName] = 0;
                 localStorage['keys'] = JSON.stringify(obj);
-                //alert('one')
                 
             } else {
-                //alert('two');
                 /* STORE names object in local storage */
                 if (namesGreetedStored[enterName] === undefined) {
                     namesGreetedStored[enterName] = 0;
-                    console.log(namesGreetedStored);
                     localStorage['keys'] = JSON.stringify(namesGreetedStored);
-                    
-                    myGreeting.greetingsCounter();
                 }
             }
-            outCounter.innerHTML = myGreeting.getCounter();
+            let newNamesStored = JSON.parse(localStorage.getItem('keys'));
+            outCounter.innerHTML = Object.keys(newNamesStored).length;
 
         } else {
             myGreeting.langErrorMessage();
