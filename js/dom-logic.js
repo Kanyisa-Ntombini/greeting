@@ -1,30 +1,33 @@
 //INSTANCE OF THE FACTORY FUNCTION
-var myGreeting = GreetMe();
-var namesGreeted = {'hey': 4};
+let myGreeting = GreetMe();
+let namesGreeted = {'hey': 4};
 
-var outCounterRefresh = document.getElementById('count');
+let outCounterRefresh = document.getElementById('count');
 outCounterRefresh.innerHTML = myGreeting.getCounter();
 
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
 function greetMeFuncEvent() {
     //CLEAR FIELDS
-    var errorName1 = document.querySelector('.err-name');
+    let errorName1 = document.querySelector('.err-name');
     errorName1.innerHTML = "";
 
-    var errorLang1 = document.querySelector('.err-lang');
+    let errorLang1 = document.querySelector('.err-lang');
     errorLang1.innerHTML = "";
 
-    var outGreet1 = document.querySelector(".greeting");
+    let outGreet1 = document.querySelector(".greeting");
     outGreet1.innerHTML = '';
 
+    let resetMessage1 = document.querySelector('.resetMessage');
+    resetMessage1.innerHTML = '';
+
     //HTML STUFF
-    var enterName = document.querySelector('.enter-name').value.toLowerCase();
-    var langChosen = document.querySelector('.lang-btn:checked');
-    var errorName = document.querySelector('.err-name');
-    var errorLang = document.querySelector('.err-lang');
-    var outGreet = document.querySelector('.greeting');
-    var outCounter = document.getElementById('count');
+    let enterName = document.querySelector('.enter-name').value.toLowerCase();
+    let langChosen = document.querySelector('.lang-btn:checked');
+    let errorName = document.querySelector('.err-name');
+    let errorLang = document.querySelector('.err-lang');
+    let outGreet = document.querySelector('.greeting');
+    let outCounter = document.getElementById('count');
 
     /* INPUT NAME */
     myGreeting.setName(enterName);
@@ -85,11 +88,11 @@ function greetMeFuncEvent() {
     }
 
     //CLEAR INPUT FIELD
-    var input1 = document.querySelector(".enter-name");
+    let input1 = document.querySelector(".enter-name");
     input1.value = '';
 
     //CLEAR RADIO BUTTONS
-    var radioBtn1 = document.querySelector('.lang-btn:checked');
+    let radioBtn1 = document.querySelector('.lang-btn:checked');
     radioBtn1.checked = false;
 }
 greetMeBtn.addEventListener('click', greetMeFuncEvent);
@@ -99,28 +102,31 @@ const resetBtn = document.querySelector('.reset');
 function resetFuncEvent() {
     localStorage.clear();
 
+    let resetMessage = document.querySelector('.resetMessage');
+    resetMessage.innerHTML = 'Users have been cleared successfully';
+
     //CLEAR INPUT FIELD
-    var input2 = document.querySelector(".enter-name");
+    let input2 = document.querySelector(".enter-name");
     input2.value = '';
 
     //CLEAR ERROR NAME FIELD
-    var errorName2 = document.querySelector('.err-name');
+    let errorName2 = document.querySelector('.err-name');
     errorName2.innerHTML = "";
 
     //CLEAR LANG FIELD
-    var errorLang2 = document.querySelector('.err-lang');
+    let errorLang2 = document.querySelector('.err-lang');
     errorLang2.innerHTML = "";
 
     //CLEAR display counter
-    var displayCountResetBtn = document.getElementById("count");
+    let displayCountResetBtn = document.getElementById("count");
     displayCountResetBtn.innerHTML = '';
 
     //CLEAR GREETING (OUTPUT)
-    var outGreet2 = document.querySelector(".greeting");
+    let outGreet2 = document.querySelector(".greeting");
     outGreet2.innerHTML = '';
 
     //CLEAR RADIO BUTTONS
-    var radioBtn = document.querySelector('.lang-btn:checked');
+    let radioBtn = document.querySelector('.lang-btn:checked');
     radioBtn.checked = false;
 }
 resetBtn.addEventListener('click', resetFuncEvent);

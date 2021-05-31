@@ -1,11 +1,11 @@
 function GreetMe() {
-    var theNameInput = '';
-    var checkNameMessage = '';
-    var checkNumberMessage = '';
-    var checkLangMessage = '';
-    var langInputChecked = '';
-    var langInput;
-    var greetMe = '';
+    let theNameInput = '';
+    let checkNameMessage = '';
+    let checkNumberMessage = '';
+    let checkLangMessage = '';
+    let langInputChecked = '';
+    let langInput;
+    let greetMe = '';
 
     function setName(name) {
         theNameInput = name;
@@ -78,8 +78,8 @@ function GreetMe() {
 
     /* OUTPUT */
     function getName() {
-            var upper = theNameInput.charAt(0).toUpperCase();
-            var lower = theNameInput.slice(1);
+            let upper = theNameInput.charAt(0).toUpperCase();
+            let lower = theNameInput.slice(1);
             return upper + lower;
     }
 

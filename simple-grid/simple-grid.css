@@ -247,7 +247,7 @@ p {
 @media only screen and (min-width: 60em) { /* 960px LAPTOP*/
   .container {
     width: 40%;
-    height: 80%;
+    height: 85%;
     max-width: 60rem;
     background-color: aliceblue;
     padding: 0rem 2rem 2rem 2rem;
@@ -308,4 +308,8 @@ p {
 
 .margin-down {
   margin-bottom: 1rem;
+}
+
+.resetMessage {
+  color: green;
 }
