@@ -118,7 +118,7 @@ function resetFuncEvent() {
 
     //CLEAR display counter
     let displayCountResetBtn = document.getElementById("count");
-    displayCountResetBtn.innerHTML = '';
+    displayCountResetBtn.innerHTML = 0;
 
     //CLEAR GREETING (OUTPUT)
     let outGreet2 = document.querySelector(".greeting");
