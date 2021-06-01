@@ -3,7 +3,9 @@ let myGreeting = GreetMe();
 let namesGreeted = {'initialise': 1};
 
 let outCounterRefresh = document.getElementById('count');
-outCounterRefresh.innerHTML = localStorage.getItem('countClicks');
+let newNamesStored1 = JSON.parse(localStorage.getItem('keys'));
+outCounterRefresh.innerHTML = Object.keys(newNamesStored1).length;
+//outCounterRefresh.innerHTML = 'hey';
 
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
