@@ -4,8 +4,11 @@ let namesGreeted = {'initialise': 1};
 
 let outCounterRefresh = document.getElementById('count');
 let newNamesStored1 = JSON.parse(localStorage.getItem('keys'));
-outCounterRefresh.innerHTML = Object.keys(newNamesStored1).length;
-//outCounterRefresh.innerHTML = 'hey';
+if (newNamesStored1 == null) {
+    outCounterRefresh.innerHTML = 0;
+} else {
+    outCounterRefresh.innerHTML = Object.keys(newNamesStored1).length;
+}
 
 //GREET ME BUTTON
 const greetMeBtn = document.querySelector('.greet');
