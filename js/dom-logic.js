@@ -3,10 +3,10 @@ let myGreeting = GreetMe();
 let namesGreeted = {'initialise': 1};
 
 let outCounterRefresh = document.getElementById('count');
-let newNamesStored1 = JSON.parse(localStorage.getItem('keys'));
-if (newNamesStored1 == null) {
+if (JSON.parse(localStorage.getItem('keys')) == null) {
     outCounterRefresh.innerHTML = 0;
 } else {
+    let newNamesStored1 = JSON.parse(localStorage.getItem('keys'));
     outCounterRefresh.innerHTML = Object.keys(newNamesStored1).length;
 }
 
