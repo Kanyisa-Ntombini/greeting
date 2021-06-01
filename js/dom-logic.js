@@ -104,6 +104,10 @@ function resetFuncEvent() {
     let resetMessage = document.querySelector('.resetMessage');
     resetMessage.innerHTML = 'Users have been cleared successfully';
 
+    //CLEAR display counter
+    let displayCountResetBtn = document.getElementById("count");
+    displayCountResetBtn.innerHTML = 0;
+
     //CLEAR INPUT FIELD
     let input2 = document.querySelector(".enter-name");
     input2.value = '';
@@ -115,10 +119,6 @@ function resetFuncEvent() {
     //CLEAR LANG FIELD
     let errorLang2 = document.querySelector('.err-lang');
     errorLang2.innerHTML = "";
-
-    //CLEAR display counter
-    let displayCountResetBtn = document.getElementById("count");
-    displayCountResetBtn.innerHTML = 0;
 
     //CLEAR GREETING (OUTPUT)
     let outGreet2 = document.querySelector(".greeting");
