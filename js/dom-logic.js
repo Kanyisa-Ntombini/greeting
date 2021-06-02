@@ -26,7 +26,7 @@ function greetMeFuncEvent() {
     let resetMessage1 = document.querySelector('.resetMessage');
     resetMessage1.innerHTML = '';
 
-    //HTML STUFF
+    //HTML ELEMENTS
     let enterName = document.querySelector('.enter-name').value.toLowerCase();
     let langChosen = document.querySelector('.lang-btn:checked');
     let errorName = document.querySelector('.err-name');
@@ -42,12 +42,14 @@ function greetMeFuncEvent() {
     if (!myGreeting.checkName()) {
         myGreeting.nameErrorMessage();
         errorName.innerHTML = myGreeting.getNameError();
+        setTimeout(function(){ errorName.innerHTML = '' }, 3000);
     } 
 
     //Check if number is entered
     if (myGreeting.checkNumber()) {
         myGreeting.numberErrorMessage();
         errorName.innerHTML = myGreeting.getNumberError();
+        setTimeout(function(){ errorName.innerHTML = '' }, 3000);
     }
 
     //Check if language is entered
@@ -83,6 +85,7 @@ function greetMeFuncEvent() {
         } else {
             myGreeting.langErrorMessage();
             errorLang.innerHTML = myGreeting.getLangError();
+            setTimeout(function(){ errorLang.innerHTML = '' }, 3000);
         }
     }
 
