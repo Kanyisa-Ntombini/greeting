@@ -1,0 +1,18 @@
+h1 {
+    position: absolute;
+    width: 602px;
+    height: 129px;
+    left: 211px;
+    bottom: 1198px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 117px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
