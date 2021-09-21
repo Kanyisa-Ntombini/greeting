@@ -29,10 +29,10 @@ function greetMeFuncEvent() {
     //HTML ELEMENTS
     let enterName = document.querySelector('.enter-name').value.toLowerCase();
     let langChosen = document.querySelector('.lang-btn:checked');
-    let errorName = document.querySelector('.err-name');
-    let errorLang = document.querySelector('.err-lang');
+    let errorName = document.querySelector('.error-name');
+    let errorLang = document.querySelector('.error-lang');
     let outGreet = document.querySelector('.greeting');
-    let outCounter = document.getElementById('count');
+    let outCounter = document.querySelector('.count');
 
     /* INPUT NAME */
     myGreeting.setName(enterName);
