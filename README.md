@@ -6,6 +6,4 @@ It displays how many people have been greeted and makes sure the same person is 
 
 The webpage displays error messages if no name is selected, a number is entered or no language is selected.
 
-Miro:
-
-Figma:
+Miro: https://miro.com/app/board/o9J_lwZ6mYo=/

@@ -8,23 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <section class="">
-        <!--HEADING-->
+    <header>
         <h1>Molweni!</h1>
+    </header>
 
+    <main>
         <!-- INPUT -->
-        <div class="center margin-down">
+        <section class="center">
             <label for="" class="">Name</label>
-            <input type="text" value="" placeholder="e.g. Jane" class="center enter-name">
-        </div>
+            <input type="text" value="" placeholder="e.g. Jane" class="enter-name">
+        </section>
 
         <!--ERROR NAME-->
-        <div class="margin-down">
-            <div class="center error err-name"></div>
-        </div>
+        <section class="">
+            <div class="error-name">Error Name</div>
+        </section>
 
         <!-- CHOOSE LANGUAGE -->
-        <div class="center margin-down">
+        <section class="center">
             <label class="">
                 <input type="radio" name="langBtnRadio" class="lang-btn" value="sotho">
                 Sesotho
@@ -39,40 +40,41 @@
                 <input type="radio" name="langBtnRadio" class="lang-btn" value="english">
                 English
             </label>
-        </div>
+        </section>
 
         <!--ERROR LANG-->
-        <div class="margin-down">
-            <div class="center error err-lang"></div>
-        </div>
+        <section class="">
+            <div class="error-lang">error language</div>
+        </section>
 
         <!-- BUTTONS -->
-        <div class="row center margin-down">
-            <div class="col-2"></div>
-            <div class="col-4">
-                <button class="button-primary greet" type="button" name="button">Greet Me</button>
-            </div>
-            <div class="col-4">
-                <button class="button-primary reset" type="button" name="button">Reset</button>
-            </div>
-            <div class="col-2"></div>
-        </div>
+        <section class="buttons-container">
+            <article class="row">
+                <span class="col-6 greet-span">
+                    <button class="button-primary greet" type="button" name="button">Greet Me</button>
+                </span>
+                <span class="col-6 reset-span">
+                    <button class="button-primary reset" type="button" name="button">Reset</button>
+                </span>
+            </article>
+        </section>
 
         <!--GREETING-->
-        <div class="margin-down">
-            <div class="center greeting"></div>
-        </div>
+        <section class="">
+            <div class="greeting">Hello there</div>
+        </section>
 
         <!-- COUNTER -->
-        <div class="center">
+        <section class="center">
             <span>Counter:</span>
-            <span id='count'>0</span>
-        </div>
+            <span class='count'>0</span>
+        </section>
 
-         <!-- RESET MESSAGE -->
-         <div class="resetMessage center"></div>
+        <!-- RESET MESSAGE -->
+        <section class="reset-message">Reset</section>
+    </main>
 
-    </section>
+    <footer></footer>
     
     <!-- *** SCRIPTS ****-->
     <script src="../greetings/js/greet.js" charset="utf-8"></script>

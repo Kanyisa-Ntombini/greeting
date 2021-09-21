@@ -1,18 +1,76 @@
 h1 {
-    position: absolute;
+    font-family: Roboto;
+    text-align: center;
+    color: #000000;
+
+    /*position: absolute;
     width: 602px;
     height: 129px;
     left: 211px;
     bottom: 1198px;
 
-    font-family: Roboto;
+    
     font-style: normal;
     font-weight: normal;
     font-size: 100px;
     line-height: 117px;
     display: flex;
-    align-items: center;
-    text-align: center;
+    align-items: center;*/
+}
 
-    color: #000000;
+.enter-name {
+    text-align: center;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.error-name {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-lang {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.buttons-container {
+    width: 20%;
+    margin-left: 40%;
+}
+
+.greet-span {
+    text-align: center;
+}
+
+.reset-span {
+    text-align: center;
+}
+
+.greet {
+    border-radius: 1rem;
+}
+
+.reset {
+    border-radius: 1rem;
+}
+
+.greeting {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.count {
+    background-color: rgb(136, 240, 240);
+    border: 0.2rem solid rgb(136, 240, 240);
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+.reset-message {
+    margin-top: 1rem;
+    text-align: center;
 }
