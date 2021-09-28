@@ -15,6 +15,8 @@ function printName(){
     document.querySelector('.error-lang').innerHTML = "";
     document.querySelector('.greeting').innerHTML = '';
     document.querySelector('.reset-message').innerHTML = '';
+    document.querySelector('.reset-message').innerHTML = '';
+
 
     //HTML ELEMENTS
     const enterName = document.querySelector('.enter-name').value;
@@ -32,8 +34,10 @@ function printName(){
     
     if (! myGreeting.checkName()) {
         errorName.innerHTML = myGreeting.getNameErrorMessage();
+        setTimeout(function(){ errorName.innerHTML = '' }, 3000);
     } else if (myGreeting.checkNumber()) {
         errorName.innerHTML = myGreeting.getNumberErrorMessage();
+        setTimeout(function(){ errorName.innerHTML = '' }, 3000);
     }
 
     //Store names in localStorage
@@ -50,7 +54,11 @@ function printName(){
     }
 
     //Language is chosen
-    myGreeting.setLang(langChosen.value);
+    if (langChosen == null) {
+        myGreeting.setLang('');
+    } else {
+        myGreeting.setLang(langChosen.value);
+    }
     myGreeting.checkLang();
     myGreeting.getLang();
 
@@ -58,6 +66,7 @@ function printName(){
         outGreet.innerHTML = myGreeting.displayGreeting();
     } else {
         errorLang.innerHTML = myGreeting.getLangErrorMessage();
+        setTimeout(function(){ errorLang.innerHTML = '' }, 3000);
     }
 
     //Counter is displayed

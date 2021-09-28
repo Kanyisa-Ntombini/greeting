@@ -1,40 +1,35 @@
+body {
+    background-color: aliceblue;
+}
+
 h1 {
     font-family: Roboto;
     text-align: center;
-    color: #000000;
-
-    /*position: absolute;
-    width: 602px;
-    height: 129px;
-    left: 211px;
-    bottom: 1198px;
-
-    
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100px;
-    line-height: 117px;
-    display: flex;
-    align-items: center;*/
+    color: rgb(136, 240, 240);
 }
 
 .enter-name {
     text-align: center;
     border-radius: 1rem;
     margin-left: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .error-name {
     text-align: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     color: crimson;
+    height: 1rem;
 }
 
 .error-lang {
     text-align: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 1rem;
+    color: crimson;
 }
 
 .buttons-container {
@@ -60,9 +55,11 @@ h1 {
 
 .greeting {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
     color: green;
+    height: 1rem;
+    font-weight: bold;
 }
 
 .count {
@@ -75,4 +72,6 @@ h1 {
 .reset-message {
     margin-top: 1rem;
     text-align: center;
+    color: green;
+    height: 1rem;
 }

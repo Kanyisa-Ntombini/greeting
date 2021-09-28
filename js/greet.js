@@ -3,13 +3,7 @@ function GreetMe() {
     let storedLang = '';
     let greetMe = '';
     let fullName = '';
-    let checkNameMessage = '';
-    let checkNumberMessage = '';
     let langErrorMessage = '';
-    /*let checkLangMessage = '';
-    let langInputChecked = '';
-    let langInput;
-    */
 
     //Enter the name
     function setName(name) {
@@ -84,23 +78,6 @@ function GreetMe() {
         }
     }
 
-
-    /* COUNTER
-    In localStorage everything is stored as a string. So we use the number method to convert it first to a  number
-    
-    function greetingsCounter() {
-        //ADD CLICKS
-        if (localStorage['countClicks']) {
-            localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
-        } else {
-            localStorage['countClicks'] = 1;
-        }
-    }
-    
-    function getCounter() {
-        return localStorage.getItem('countClicks'); //returns a string
-    }*/
-
     return {
         setName,
         checkName,
@@ -113,8 +90,6 @@ function GreetMe() {
         checkLang,
         getLang,
         getLangErrorMessage,
-        displayGreeting/*,
-        greetingsCounter,
-        getCounter*/
+        displayGreeting
     }
 }
