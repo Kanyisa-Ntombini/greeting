@@ -23,6 +23,18 @@ function printName(){
         errorName.innerHTML = myGreeting.getNumberErrorMessage();
     }
 
+    //Store names in localStorage
+    if (localStorage.getItem('fullNamesKey') == null) {
+        let fullNamesList = [];
+	    localStorage['fullNamesKey'] = JSON.stringify(fullNamesList);
+    } else {
+        let fullNamesList = JSON.parse(localStorage.getItem(fullNamesKey));
+        if (fullNamesList.indexOf(myGreeting.getFullName()) < 0) {
+            fullNamesList.push(myGreeting.getFullName());
+            localStorage.fullNamesKey = JSON.stringify(fullNamesList);
+        }
+    }
+
     //Language is chosen
     myGreeting.setLang(langChosen.value);
     myGreeting.checkLang();
@@ -34,6 +46,9 @@ function printName(){
         errorLang.innerHTML = myGreeting.getLangErrorMessage();
     }
 
+    //Counter is displayed
+    let getNamesList = JSON.parse(localStorage.getItem('fullNamesKeys'));
+    outCounter.innerHTML = getNamesList.length;
 }
 
 const greetBtn = document.querySelector('.greet');

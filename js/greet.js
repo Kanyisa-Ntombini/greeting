@@ -4,7 +4,7 @@ function GreetMe() {
     let greetMe = '';
     let fullName = '';
     let checkNameMessage = '';
-    let checkNumberMessage = 'original';
+    let checkNumberMessage = '';
     let langErrorMessage = '';
     /*let checkLangMessage = '';
     let langInputChecked = '';
@@ -37,11 +37,15 @@ function GreetMe() {
     }
 
     function makeName() {
-        if (checkName() && checkNumber()) {
+        if (checkName() && ! checkNumber()) {
             let upper = storedName.charAt(0).toUpperCase();
             let lower = storedName.slice(1).toLowerCase();
             fullName = upper + lower;
         }
+    }
+
+    function getFullName() {
+        return fullName;
     }
 
     //Choose the language
@@ -80,80 +84,11 @@ function GreetMe() {
         }
     }
 
-    /* CHECKING IF A NAME HAS BEEN INSERTED */
-    /*function checkName() {
-        return theNameInput.length > 0;
-    }
 
-    function nameErrorMessage () {
-        if (checkName()) {
-            checkLanguage();
-        } else {
-            checkNameMessage = 'Please enter a name';
-        }
-    }
-
-    function getNameError() {
-        return checkNameMessage;
-    }
-
-    function checkNumber() {
-        return /\d/.test(theNameInput);
-    }
-
-    function numberErrorMessage() {
-        if (checkNumber()) {
-            checkNumberMessage = 'Please do not enter a number';
-        } else {
-            checkLanguage();
-        }
-    }
-
-    function getNumberError() {
-        return checkNumberMessage;
-    }
-
-    //LANGUAGE
-    function setLang(language) {
-        langInputChecked = language;
-    }
-
-    function checkLanguage() {
-        return langInputChecked != null;
-    }
-
-    function langErrorMessage() {
-        if (checkLanguage()) {
-            langInput = langInputChecked.value;
-        } else {
-            checkLangMessage = 'Please choose a language';
-        }
-    }
-
-    function getLangError() {
-        return checkLangMessage;
-    }
-
-    function getLanguage() {
-        if (langInput == 'sotho') {
-            greetMe = 'Dumela';
-        } else if (langInput == 'samoa') {
-            greetMe = 'Talofa';
-        } else if (langInput == 'english') {
-            greetMe = 'Hello';
-        }  
-    }
-
-
-    /* OUTPUT */
+    /* COUNTER
+    In localStorage everything is stored as a string. So we use the number method to convert it first to a  number
     
-
-    function showGreeting() {
-        return greetMe  + ', ' + getName();
-    }
-
-    /* COUNTER */
-    /*function greetingsCounter() {
+    function greetingsCounter() {
         //ADD CLICKS
         if (localStorage['countClicks']) {
             localStorage['countClicks'] = Number(localStorage['countClicks']) + 1;
@@ -163,7 +98,7 @@ function GreetMe() {
     }
     
     function getCounter() {
-        return localStorage.getItem('countClicks');
+        return localStorage.getItem('countClicks'); //returns a string
     }*/
 
     return {
@@ -171,25 +106,15 @@ function GreetMe() {
         checkName,
         checkNumber,
         makeName,
+        getFullName,
         getNameErrorMessage,
         getNumberErrorMessage,
         setLang,
         checkLang,
         getLang,
         getLangErrorMessage,
-        displayGreeting
-        /*checkName,
-        nameErrorMessage,
-        getNameError,
-        checkNumber,
-        numberErrorMessage,
-        getNumberError,
-        setLang,
-        checkLanguage,
-        langErrorMessage,
-        getLangError,
-        getLanguage,
-        
-        showGreeting*/
+        displayGreeting,
+        greetingsCounter,
+        getCounter
     }
 }
