@@ -12,6 +12,17 @@ describe('Greetings function:' ,
             }
         );
 
+        it ('should ensure only the first letter is in uppercase', 
+            function () {
+                let testGreeting = GreetMe();
+                testGreeting.setName('autUMn');
+                testGreeting.checkName();
+                testGreeting.checkNumber();
+                testGreeting.makeName();
+                assert.deepEqual('Autumn', testGreeting.getFullName());
+            }
+        );
+
         it ('should check if a number is entered', 
             function () {
                 let testGreeting = GreetMe();
@@ -49,14 +60,7 @@ describe('Greetings function:' ,
             }
         );
 
-        /*it ('should ensure only the first letter is in uppercase', 
-            function () {
-                let testGreeting = GreetMe();
-                testGreeting.setName('autUMn'.toLocaleLowerCase());
-            
-                assert.deepEqual('Autumn', testGreeting.getName());
-            }
-        );
+        /*
 
         
 

@@ -113,8 +113,8 @@ function GreetMe() {
         checkLang,
         getLang,
         getLangErrorMessage,
-        displayGreeting,
+        displayGreeting/*,
         greetingsCounter,
-        getCounter
+        getCounter*/
     }
 }
