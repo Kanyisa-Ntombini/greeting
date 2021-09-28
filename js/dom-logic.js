@@ -1,3 +1,47 @@
+//Factory functio
+let myGreeting = GreetMe();
+
+
+function printName(){
+    //HTML ELEMENTS
+    const enterName = document.querySelector('.enter-name').value;
+    const langChosen = document.querySelector('.langBtn:checked');
+    const errorName = document.querySelector('.error-name');
+    const errorLang = document.querySelector('.error-lang');
+    const outGreet = document.querySelector('.greeting');
+    const outCounter = document.querySelector('.count');
+
+    //Name is entered
+    myGreeting.setName(enterName);
+    myGreeting.checkName();
+    myGreeting.checkNumber();
+    myGreeting.makeName();
+    
+    if (! myGreeting.checkName()) {
+        errorName.innerHTML = myGreeting.getNameErrorMessage();
+    } else if (myGreeting.checkNumber()) {
+        errorName.innerHTML = myGreeting.getNumberErrorMessage();
+    }
+
+    //Language is chosen
+    myGreeting.setLang(langChosen.value);
+    myGreeting.checkLang();
+    myGreeting.getLang();
+
+    if (myGreeting.checkLang()) {
+        outGreet.innerHTML = myGreeting.displayGreeting();
+    } else {
+        errorLang.innerHTML = myGreeting.getLangErrorMessage();
+    }
+
+}
+
+const greetBtn = document.querySelector('.greet');
+greetBtn.addEventListener('click', printName);
+
+
+/*
+
 //INSTANCE OF THE FACTORY FUNCTION
 let myGreeting = GreetMe();
 let namesGreeted = {'initialise': 1};
@@ -26,18 +70,11 @@ function greetMeFuncEvent() {
     let resetMessage1 = document.querySelector('.resetMessage');
     resetMessage1.innerHTML = '';
 
-    //HTML ELEMENTS
-    let enterName = document.querySelector('.enter-name').value.toLowerCase();
-    let langChosen = document.querySelector('.lang-btn:checked');
-    let errorName = document.querySelector('.error-name');
-    let errorLang = document.querySelector('.error-lang');
-    let outGreet = document.querySelector('.greeting');
-    let outCounter = document.querySelector('.count');
-
-    /* INPUT NAME */
+    
+    /* INPUT NAME 
     myGreeting.setName(enterName);
 
-    /* PROCESS */
+    /* PROCESS 
     //Check if name is entered
     if (!myGreeting.checkName()) {
         myGreeting.nameErrorMessage();
@@ -73,7 +110,7 @@ function greetMeFuncEvent() {
                 localStorage['keys'] = JSON.stringify(obj);
                 
             } else {
-                /* STORE names object in local storage */
+                /* STORE names object in local storage 
                 if (namesGreetedStored[enterName] === undefined) {
                     namesGreetedStored[enterName] = 0;
                     localStorage['keys'] = JSON.stringify(namesGreetedStored);
@@ -131,4 +168,4 @@ function resetFuncEvent() {
     let radioBtn = document.querySelector('.lang-btn:checked');
     radioBtn.checked = false;
 }
-resetBtn.addEventListener('click', resetFuncEvent);
+resetBtn.addEventListener('click', resetFuncEvent);*/
